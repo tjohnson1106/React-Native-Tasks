@@ -46,11 +46,17 @@ class Main extends Component {
             placeholderTextColor="white"
           />
         </View>
-        <TouchableOpacity style={styles.addButton}>
+        <TouchableOpacity
+          onPress={this.addTask.bind(this)}
+          style={styles.addButton}
+        >
           <Text style={styles.addButtonText}>+</Text>
         </TouchableOpacity>
       </View>
     );
+  }
+  addTask() {
+    alert("test");
   }
 }
 
