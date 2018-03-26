@@ -36,7 +36,9 @@ class Main extends Component {
         <View style={styles.header}>
           <Text style={styles.headerText}>- Tasks -</Text>
         </View>
-        <ScrollView style={styles.scrollContainer} />
+        <ScrollView style={styles.scrollContainer}>
+          {tasks}
+        </ScrollView>
         <View style={styles.footer}>
           <TextInput
             style={styles.textInput}
@@ -56,7 +58,31 @@ class Main extends Component {
     );
   }
   addTask() {
-    alert("test");
+    if (this.state.taskText) {
+      let d = new Date();
+      this.state.taskArray.push({
+        date:
+          d.getFullYear() +
+          "/" +
+          (d.getMonth() + 1) +
+          "/" +
+          d.getDate(),
+        task: this.state.taskText
+      });
+
+      this.setState({
+        taskArray: this.state.textArray
+      }),
+        this.setState({
+          taskText: ""
+        });
+    }
+  }
+  deleteTask(key) {
+    this.state.taskArray.splice(key, 1);
+    this.setState({
+      taskArray: this.state.taskArray
+    });
   }
 }
 
