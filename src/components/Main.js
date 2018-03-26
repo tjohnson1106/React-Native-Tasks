@@ -8,7 +8,17 @@ import {
   TouchableOpacity
 } from "react-native";
 
+import Task from "./Task";
+
 class Main extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      taskArray: [],
+      taskText: ""
+    };
+  }
+
   render() {
     return (
       <View>
