@@ -20,6 +20,17 @@ class Main extends Component {
   }
 
   render() {
+    let tasks = this.state.taskArray.map((val, key) => {
+      return (
+        <Task
+          key={key}
+          keyval={key}
+          val={val}
+          deleteMethod={() => this.deleteTask(key)}
+        />
+      );
+    });
+
     return (
       <View>
         <View style={styles.header}>
@@ -29,6 +40,8 @@ class Main extends Component {
         <View style={styles.footer}>
           <TextInput
             style={styles.textInput}
+            onChangeText={taskText => this.setState({ taskText })}
+            value={this.state.taskText}
             placeholder="task"
             placeholderTextColor="white"
           />
